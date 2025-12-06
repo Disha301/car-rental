@@ -1,0 +1,49 @@
+form {
+    background-color: #e0f7fa; /* Light background to contrast the body text color */
+    padding: 2rem;
+    margin: 5rem auto;
+    width: 40%;
+    border-radius: 8px;;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #111827;
+    text-align: left;
+    font-size: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+form input[type="submit"],
+form button {
+    background-color: rgb(216, 178, 24);
+    color: #111827;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover,
+form button:hover {
+    background-color: rgba(216, 178, 24, 0.8);
+    border-radius: 8px;
+}

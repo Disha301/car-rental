@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form-style2.css">
+</head>
+<body>
+    <div class="form">
+    <form action="/form" method="post">
+        <label for="name">Name : 
+        <input type="text" id="name" name="customerName" placeholder="Enter your name" minlength="3">
+    </label><br>
+    <label for="contact">Contact : 
+        <input type="tel" name="contact" id="contact" placeholder="Enter your Contact" required minlength="10" maxlength="10">
+    </label><br>
+<label for="pickup"> PickUp : 
+        <input type="address" name="pickup" id="pickup" placeholder="Enter pickup address" minlength="3">
+    </label><br>
+<label for="destination">Destination : 
+    <input type="address" name="destination" id="destination" placeholder="Enter destination" minlength="3">
+</label><br>
+<label>Car ID:
+    <select name="carId" required>
+      <option value="CAR001">Sedan</option>
+      <option value="CAR002">SUV</option>
+      <option value="CAR003">HatchBack</option>
+      <option value="CAR004">Toyota Hilux</option>
+      <option value="CAR005">Hyndari</option>
+    </select>
+  </label><br>
+<label for="pickdate">PickUp Date :
+    <input type="date"  name="startDate" id="pickdate" placeholder="Enter pickup date" required>
+</label><br>
+<label for="returndate">Return Date: 
+<input type="date" name="endDate" id="returndate" placeholder="Enter drop Date" required >
+</label><br>
+<button >Submit</button>
+    </form>
+   </div>
+</body>
+<script src="script.js"></script>
+</html>
