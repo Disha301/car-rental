@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Bookings</title>
+  <link rel="stylesheet" href="./public/indexStyle.css">
+</head>
+<body>
+
+<h1>All Bookings</h1>
+
+<table border="1">
+  <tr>
+    <th>Customer</th>
+    <th>Destination</th>
+    <th>Car</th>
+    <th>Days</th>
+    <th>Total Cost</th>
+    <th>Payment Status</th>
+    <th>Booking Date</th>
+  </tr>
+
+  <% bookings.forEach(b => { %>
+    <tr>
+      <td><%= b.customerName %></td>
+      <td><%= b.destination %></td>
+      <td><%= b.carId %></td>
+      <td><%= b.days %></td>
+      <td>₹<%= b.totalCost %></td>
+      <td>
+        <% if (b.paymentStatus === "SUCCESS") { %>
+          ✅ Success
+        <% } else if (b.paymentStatus === "FAILED") { %>
+          ❌ Failed
+        <% } else { %>
+          ⏳ Pending
+        <% } %>
+      </td>
+      <td><%= b.createdAt.toDateString() %></td>
+    </tr>
+  <% }) %>
+</table>
+
+<a href="/admin/dashboard">Back</a>
+
+</body>
+</html>

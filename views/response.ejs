@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+          background-color: aqua;
+       }
+        h1,h2{
+            font-size: 3rem;
+            text-align: center;
+            padding: 3%;
+            padding-bottom:4%;
+        }
+     
+            .confirmation {
+    border: 2px solid aliceblue;
+    border-radius: 1.5rem;
+    background-color: rgb(17, 219, 219);
+    padding: 2rem;
+    width: 60%;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+text-align: center;
+
+        }
+        h1{
+            font-size: 2.2rem;
+            padding-bottom: 1.5rem;
+        }
+        a{
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 20%;
+            background-color: blue;
+            color: antiquewhite;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            font-size: medium;
+            text-decoration: none;
+        }
+        .pay-btn {
+    display: block;                 /* allows centering */
+    width: 220px;                   /* proportional size */
+    margin: 2rem auto;              /* center horizontally */
+
+    padding: 0.9rem 0;              /* height similar to cards */
+    text-align: center;
+
+    background-color: #007bff;
+    color: #ffffff;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+
+    transition: all 0.25s ease;
+}
+
+/* Hover */
+.pay-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Active (click) */
+.pay-btn:active {
+    transform: translateY(0);
+}
+
+    </style>
+</head>
+<body>
+    <h2>Your Booking Has Been Confirmed</h2>
+    <h1>Reservation Confirmation</h1>
+    <div class="confirmation">
+   
+    <p>Customer Name:<%= customerName %></p>
+    <p>Car Model: <%= car %></p>
+    <p>Rental Days: <%= days %></p>
+    <p>Total Cost: $<%= totalCost %></p>
+      </div>
+   
+    <a href="/pay/<%= booking._id %>" class="pay-btn">Pay Now</a>
+    
+
+
+
+
+
+
+</body>
+</html>

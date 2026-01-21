@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Cars</title>
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+
+<h1>Car Management</h1>
+
+<h2>Add New Car</h2>
+<form method="POST" action="/admin/cars/add">
+  <input type="text" name="name" placeholder="Car Name" required>
+  <input type="number" name="rentPerDay" placeholder="Rent Per Day" required>
+  <input type="text" name="registrationNumber" placeholder="Registration Number" required>
+  <button type="submit">Add Car</button>
+</form>
+<hr>
+
+<h2>Available Cars</h2>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Rent / Day</th>
+    <th>Reg. No</th>
+    <th>Action</th>
+  </tr>
+
+  <% cars.forEach(car => { %>
+    <tr>
+      <td><%= car.name %></td>
+      <td>₹<%= car.rentPerDay %></td>
+      <td><%= car.registrationNumber %></td>
+      <td>
+        <a href="/admin/cars/delete/<%= car._id %>">Delete</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>
+
+<a href="/admin/dashboard">Back</a>
+
+</body>
+</html>

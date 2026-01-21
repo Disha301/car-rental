@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Bookings</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; }
+    table { width: 80%; margin: 0 auto; border-collapse: collapse; }
+    th, td { border: 1px solid #ddd; padding: 0.75rem; text-align: center; }
+    th { background-color: #007bff; color: white; }
+    tr:nth-child(even) { background-color: #f2f2f2; }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>Your Booking(s)</h2>
+
+  <% if (bookings.length === 0) { %>
+    <p style="text-align:center;">No bookings found for this number.</p>
+  <% } else { %>
+    <table>
+      <tr>
+        <th>Customer Name</th>
+        <th>Car Model</th>
+        <th>Destination</th>
+        <th>Rental Days</th>
+        <th>Total Cost</th>
+        <th>Payment Status</th>
+      </tr>
+      <% bookings.forEach(b => { %>
+        <tr>
+          <td><%= b.customerName %></td>
+          <td><%= b.carId %></td>
+          <td><%= b.destination %></td>
+          <td><%= b.days %></td>
+          <td>$<%= b.totalCost %></td>
+          <td><%= b.paymentStatus || "Pending" %></td>
+        </tr>
+      <% }) %>
+    </table>
+  <% } %>
+
+  <p style="text-align:center;"><a href="/">Back to Home</a></p>
+</body>
+</html>
