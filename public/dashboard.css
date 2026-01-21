@@ -1,0 +1,81 @@
+
+  * {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 2rem;
+    background: #f4f6f8;
+    color: #333;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #222;
+  }
+
+  /* Stats container */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+  }
+
+  /* Individual stat card */
+  .stats div {
+    background: #ffffff;
+    padding: 1.8rem;
+    border-radius: 14px;
+    text-align: center;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .stats div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  }
+
+  .stats strong {
+    display: block;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    color: #007bff;
+  }
+
+  /* Links as buttons */
+  a {
+    display: block;
+    max-width: 260px;
+    margin: 0.8rem auto;
+    padding: 0.9rem 1rem;
+    text-align: center;
+    background: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: background 0.25s ease, transform 0.2s ease;
+  }
+
+  a:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+  }
+
+  a:last-child {
+    background: #6c757d;
+  }
+
+  a:last-child:hover {
+    background: #5a6268;
+  }
+
