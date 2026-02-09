@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="/form.css">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Driver Registration</h2>
+
+<form method="POST" action="/driver/register">
+
+  <!-- Basic driver details -->
+   <label for="driverName">Driver Full Name</label>
+  <input
+    type="text"
+    name="driverName"
+    placeholder="Driver Full Name"
+    required
+  >
+<label for="driverPhone">Phone Number</label>
+  <input
+    type="number"
+    name="driverPhone"
+    placeholder="Phone Number"
+    required
+  >
+
+  <!-- Driving License -->
+   <label for="drivingLicenseNo">License Number</label>
+  <input
+    type="text"
+    name="drivingLicenseNo"
+    placeholder="Driving License Number"
+    required
+  >
+
+  <label>License Expiry Date</label>
+  <input
+    type="date"
+    name="licenseExpiry"
+    required
+  >
+
+  <!-- Vehicle details -->
+   <label for="vehicleRegistrationNo">Vehicle Registration Number</label>
+  <input
+    type="text"
+    name="vehicleRegistrationNo"
+    placeholder="Vehicle Registration Number"
+    required
+  >
+<label for="vehicleRC">Vehicle RC Number</label>
+  <input
+    type="text"
+    name="vehicleRC"
+    placeholder="Vehicle RC Number"
+    required
+  >
+
+  <!-- Route capability -->
+  <label>Driving Route Capability</label>
+  <select name="drivingRoute" required>
+    <option value="">Route</option>
+    <option value="CITY">City</option>
+    <option value="HIGHWAY">Highway</option>
+    <option value="MOUNTAIN">Mountain</option>
+    <option value="DESERT">Desert</option>
+    <option value="ALL">All Routes</option>
+  </select>
+
+  <button type="submit">Submit Registration</button>
+
+</form>
+</body>
+</html>

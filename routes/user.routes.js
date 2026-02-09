@@ -8,29 +8,50 @@ router.get('/user-login', (req, res) => {
   res.render('user-login');
 });
 
-router.post('/user-login', async (req, res) => {
-  const contact= Number(req.body.contact);
-  const user = await User.findOne({contact});
-  console.log(req.body);
-  if (!user) return res.send('Invalid credentials');
+
+  router.post('/user-login', async (req, res) => {
+  const contact = req.body.contact.trim();
+
+  const user = await User.findOne({ contact });
+  console.log("LOGIN ATTEMPT:", contact, user);
+
+  if (!user) {
+    return res.send('Invalid credentials');
+  }
 
   req.session.userId = user._id;
-  res.redirect('/user/bookings');
+
+  req.session.save(() => {
+    res.redirect('/user/bookings');
+  });
 });
 
+
 router.get('/user/bookings', userAuth, async (req, res) => {
- // const bookings = await Booking.find({ userEmail: req.session.user.email });
   const user = await User.findById(req.session.userId)
-  .populate('bookings');
+    .populate({
+      path: 'bookings',
+      populate: {
+        path: 'driverId',
+        model: 'Driver'
+      }
+    });
 
-res.render('user-bookings', { bookings: user.bookings });
-
- res.render('user-bookings', { bookings });
+  res.render('user-bookings', { bookings: user.bookings });
 });
 
 router.get('/receipt/:id', userAuth, async (req, res) => {
-  const booking = await Booking.findById(req.params.id);
-  res.render('receipt', { booking });
+  const booking = await Booking.findOne({
+    _id: req.params.id,
+    user: req.session.userId
+  }).populate('driverId');
+
+  if (!booking) {
+    return res.status(404).send("Receipt not found or access denied");
+  }
+
+  res.render('response', { booking });
 });
+
 
 module.exports = router;

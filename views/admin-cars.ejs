@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Manage Cars</title>
-  <link rel="stylesheet" href="/admin.css">
+  <link rel="stylesheet" href="/admin-cars.css">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
     <th>Name</th>
     <th>Rent / Day</th>
     <th>Reg. No</th>
-    <th>Action</th>
+    <th hidden>Action</th>
   </tr>
 
   <% cars.forEach(car => { %>
@@ -32,7 +32,7 @@
       <td>₹<%= car.rentPerDay %></td>
       <td><%= car.registrationNumber %></td>
       <td>
-        <a href="/admin/cars/delete/<%= car._id %>">Delete</a>
+        <a href="/admin/cars/delete/<%= car._id %>" hidden>Delete</a>
       </td>
     </tr>
   <% }) %>

@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/pay/:id', async (req, res) => {
   const booking = await Booking.findById(req.params.id);
 
-  const success = Math.random() > 0.3; // backend decides
+  const success = Math.random() > 0.2; // backend decides
 
   booking.paymentStatus = success ? 'SUCCESS' : 'FAILED';
   booking.receiptId = success ? `RCPT-${Date.now()}` : null;

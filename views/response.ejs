@@ -1,103 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-       body{
-          background-color: aqua;
-       }
-        h1,h2{
-            font-size: 3rem;
-            text-align: center;
-            padding: 3%;
-            padding-bottom:4%;
-        }
-     
-            .confirmation {
-    border: 2px solid aliceblue;
-    border-radius: 1.5rem;
-    background-color: rgb(17, 219, 219);
-    padding: 2rem;
-    width: 60%;
-    margin: 0 auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.6;
-text-align: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservation Confirmation</title>
 
-        }
-        h1{
-            font-size: 2.2rem;
-            padding-bottom: 1.5rem;
-        }
-        a{
-            padding: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        width: 20%;
-            background-color: blue;
-            color: antiquewhite;
-            border-radius: 12px;
-            display: block;
-            margin: 0 auto;
-            text-align: center;
-            font-size: medium;
-            text-decoration: none;
-        }
-        .pay-btn {
-    display: block;                 /* allows centering */
-    width: 220px;                   /* proportional size */
-    margin: 2rem auto;              /* center horizontally */
-
-    padding: 0.9rem 0;              /* height similar to cards */
-    text-align: center;
-
-    background-color: #007bff;
-    color: #ffffff;
-
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-
-    transition: all 0.25s ease;
+<style>
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Hover */
+/* ========== BACKGROUND ========== */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      rgba(226, 232, 240, 0.85),
+      rgba(241, 245, 249, 0.85)
+    ),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: #020617;
+  padding: 40px 20px;
+}
+
+/* ========== HEADINGS ========== */
+h2 {
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: 0.6px;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.3rem;
+  margin-bottom: 30px;
+  color: #020617;
+}
+
+/* ========== CONFIRMATION CARD ========== */
+.confirmation {
+  max-width: 520px;
+  margin: 0 auto;
+
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 32px 36px;
+
+  box-shadow: 0 25px 55px rgba(0,0,0,0.18);
+  text-align: center;
+  position: relative;
+}
+
+/* Accent line */
+.confirmation::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+}
+
+/* Booking details */
+.confirmation p {
+  font-size: 1.05rem;
+  margin: 14px 0;
+  color: #1f2937;
+}
+
+.confirmation p strong {
+  color: #020617;
+}
+
+/* ========== PAY BUTTON ========== */
+.pay-btn {
+  display: block;
+  width: 240px;
+  margin: 32px auto 0;
+
+  padding: 14px 0;
+  text-align: center;
+
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.4);
+
+  transition: all 0.3s ease;
+}
+
 .pay-btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 38px rgba(37, 99, 235, 0.55);
 }
 
-/* Active (click) */
-.pay-btn:active {
-    transform: translateY(0);
-}
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.9rem;
+  }
 
-    </style>
+  .confirmation {
+    padding: 26px 22px;
+  }
+}
+</style>
 </head>
+
 <body>
-    <h2>Your Booking Has Been Confirmed</h2>
-    <h1>Reservation Confirmation</h1>
-    <div class="confirmation">
-   
-    <p>Customer Name:<%= customerName %></p>
-    <p>Car Model: <%= car %></p>
-    <p>Rental Days: <%= days %></p>
-    <p>Total Cost: Rs.<%= totalCost %></p>
-      </div>
-   
-    <a href="/pay/<%= booking._id %>" class="pay-btn">Pay Now</a>
-    
 
+<h2>Your Booking Has Been Confirmed</h2>
+<h1>Reservation Confirmation</h1>
 
+<div class="confirmation">
+  <p><strong>Customer Name:</strong> <%= customerName %></p>
+  <p><strong>Car Model:</strong> <%= car %></p>
+  <p><strong>Rental Days:</strong> <%= days %></p>
+  <p><strong>Total Cost:</strong> ₹<%= totalCost %></p>
+  <p><strong>Driver Name:</strong>
+  <%= driver ? driver.driverName : 'Not Assigned' %>
+</p>
 
+<p><strong>Vehicle No:</strong>
+  <%= driver ? driver.vehicleRegistrationNo : 'N/A' %>
+</p>
 
+</div>
 
+<a href="/pay/<%= booking._id %>" class="pay-btn">Pay Now</a>
 
 </body>
 </html>

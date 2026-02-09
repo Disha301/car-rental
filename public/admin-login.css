@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* =====================
+   THEME COLORS
+===================== */
+:root {
+    --bg: #0b1220;          /* deep dark blue */
+    --card: #111827;        /* form surface */
+    --border: #1f2937;      /* subtle border */
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #f59e0b;      /* taxi yellow */
+    --accent-hover: #fbbf24;
+}
+
+/* =====================
+   RESET
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =====================
+   BODY
+===================== */
+body {
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =====================
+   HEADING
+===================== */
+h2 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+}
+
+/* =====================
+   FORM CARD
+===================== */
+form {
+    width: 100%;
+    max-width: 380px;
+    background-color: var(--card);
+    padding: 35px 30px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* =====================
+   INPUTS
+===================== */
+input {
+    width: 100%;
+    padding: 14px 15px;
+    margin-bottom: 18px;
+    background-color: #0b1220;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input::placeholder {
+    color: var(--muted);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(245,158,11,0.25);
+}
+
+/* =====================
+   BUTTON
+===================== */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--accent);
+    color: #111827;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 480px) {
+    form {
+        padding: 28px 22px;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+}

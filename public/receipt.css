@@ -1,0 +1,135 @@
+/* ===== BODY BACKGROUND ===== */
+body {
+  margin: 0;
+  padding: 3rem 1rem;
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  background:
+    linear-gradient(
+      rgba(226, 232, 240, 0.82),
+      rgba(241, 245, 249, 0.82)
+    ),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: #020617;
+  text-align: center;
+}
+
+/* ===== TITLE ON TOP ===== */
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+}
+
+/* ===== RECEIPT CARD ===== */
+table {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+
+  background: #ffffff;
+  border-radius: 16px;
+  border-collapse: collapse;
+  overflow: hidden;
+
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.18);
+}
+
+/* ===== TABLE HEADER ===== */
+th {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 14px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ===== TABLE CELLS ===== */
+td {
+  padding: 14px 12px;
+  font-size: 0.95rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ===== STRIPED ROWS ===== */
+tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+/* ===== LAST ROW CLEAN ===== */
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===== TOTAL COST HIGHLIGHT ===== */
+td:nth-child(5) {
+  font-weight: 600;
+  color: #0f766e;
+}
+
+/* ===== EMPTY MESSAGE ===== */
+p {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* ===== BACK LINK AT BOTTOM ===== */
+p a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 10px 22px;
+  border-radius: 8px;
+
+  background: #0f172a;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: all 0.25s ease;
+}
+
+p a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    padding: 10px 6px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== PRINT LIKE REAL RECEIPT ===== */
+@media print {
+  body {
+    background: white;
+  }
+
+  table {
+    box-shadow: none;
+  }
+
+  p a {
+    display: none;
+  }
+}

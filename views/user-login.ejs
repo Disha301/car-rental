@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
   <title>User Login</title>
@@ -13,5 +13,36 @@
   </form>
 
   <a href="/">Back to Home</a>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login | Lucknow Taxi</title>
+    <link rel="stylesheet" href="login-style.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-card">
+            <h2>User Login</h2>
+            <p>Enter your details to view your booking status</p>
+            
+            <form method="POST" action="/user-login">
+                <div class="input-group">
+                    <label for="contact">Phone Number</label>
+                    <input type="text" id="contact" name="contact" placeholder="e.g. +91 9876543210" required />
+                </div>
+                
+                <button type="submit" class="login-btn">View Booking</button>
+            </form>
+
+            <div class="footer-links">
+                <a href="/">Back to Home</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

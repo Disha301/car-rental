@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="form-style2.css">
+    <link rel="stylesheet" href="form.css">
 </head>
 <body>
     <div class="form">
@@ -21,7 +21,7 @@
 <label for="destination">Destination : 
     <input type="address" name="destination" id="destination" placeholder="Enter destination" minlength="3">
 </label><br>
-<label>Car ID:
+<label >Car ID:
     <select name="carId" required>
       <option value="CAR001">Sedan</option>
       <option value="CAR002">SUV</option>
@@ -30,6 +30,11 @@
       <option value="CAR005">Hyndari</option>
     </select>
   </label><br>
+
+   <input type="hidden" name="driverId" id="driverId" value="">
+ <button type="button" onclick="selectDriver()">Select Driver</button>
+ <br>
+
 <label for="pickdate">PickUp Date :
     <input type="date"  name="startDate" id="pickdate" placeholder="Enter pickup date" required>
 </label><br>
@@ -40,5 +45,23 @@
     </form>
    </div>
 </body>
-<script src="script.js"></script>
+<script src="/script.js"></script>
+<!--<script>
+window.onload = () => {
+    const driverId = sessionStorage.getItem('selectedDriverId');
+    const driverName = sessionStorage.getItem('selectedDriverName');
+    if (driverId) {
+        document.getElementById('driverId').value = driverId;
+
+        // Show selected driver name to user
+        let info = document.getElementById('selectedDriverInfo');
+        if (!info) {
+            info = document.createElement('p');
+            info.id = 'selectedDriverInfo';
+            document.querySelector('.form').prepend(info);
+        }
+        info.innerText = 'Selected Driver: ' + driverName;
+    }
+}
+</script>-->
 </html>

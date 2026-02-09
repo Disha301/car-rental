@@ -1,0 +1,156 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #050d18, #0a1f33, #0f3c66);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 45px 15px;
+    color: #f0f8ff;
+}
+
+/* ===== TITLE ===== */
+h1 {
+    margin-bottom: 40px;
+    font-size: 2.7rem;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* ==================================================
+   CENTER-ALIGNED INFO CARDS
+   ================================================== */
+div {
+    width: 100%;
+    max-width: 540px;
+    margin-bottom: 26px;
+    padding: 26px 24px;
+    border-radius: 18px;
+    position: relative;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* ===== TOP CENTER ACCENT LINE ===== */
+div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+
+    transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover animation */
+div:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 20px 55px rgba(0, 140, 255, 0.65);
+}
+
+div:hover::before {
+    width: 90px;
+    box-shadow: 0 0 14px rgba(0, 198, 255, 0.9);
+}
+
+/* ===== HEADINGS ===== */
+h3 {
+    margin-top: 12px;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #9fe7ff;
+    letter-spacing: 0.5px;
+}
+
+/* ===== CONTENT ===== */
+p {
+    margin: 6px 0;
+    font-size: 0.97rem;
+    color: #e9f6ff;
+    line-height: 1.6;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: #4facfe;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #9fe7ff;
+    text-decoration: underline;
+}
+
+/* ==================================================
+   SOCIAL MEDIA SECTION
+   ================================================== */
+div:last-child {
+    text-align: center;
+}
+
+div:last-child::before {
+    display: none;
+}
+
+div:last-child h3 {
+    margin-bottom: 20px;
+}
+
+div:last-child p {
+    display: inline-block;
+    margin: 8px 12px;
+}
+
+div:last-child a {
+    display: inline-block;
+    padding: 11px 20px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: #ffffff;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 18px rgba(0, 114, 255, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+div:last-child a:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 12px 35px rgba(0, 198, 255, 0.7);
+    text-decoration: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.1rem;
+    }
+
+    div {
+        padding: 20px;
+    }
+}

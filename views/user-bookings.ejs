@@ -2,14 +2,15 @@
 <html>
 <head>
   <title>Your Bookings</title>
-  <style>
+  <!--<style>
     body { font-family: Arial, sans-serif; padding: 2rem; }
     table { width: 80%; margin: 0 auto; border-collapse: collapse; }
     th, td { border: 1px solid #ddd; padding: 0.75rem; text-align: center; }
     th { background-color: #007bff; color: white; }
     tr:nth-child(even) { background-color: #f2f2f2; }
     h2 { text-align: center; }
-  </style>
+  </style>-->
+  <link rel="stylesheet" href="/receipt.css">
 </head>
 <body>
   <h2>Your Booking(s)</h2>
@@ -25,6 +26,9 @@
         <th>Rental Days</th>
         <th>Total Cost</th>
         <th>Payment Status</th>
+        <th>Driver</th>
+        <th>Vehicle No.</th>
+        <th hidden>Receipt</th>
       </tr>
       <% bookings.forEach(b => { %>
         <tr>
@@ -32,8 +36,18 @@
           <td><%= b.carId %></td>
           <td><%= b.destination %></td>
           <td><%= b.days %></td>
-          <td>$<%= b.totalCost %></td>
+          <td>Rs.<%= b.totalCost %></td>
           <td><%= b.paymentStatus || "Pending" %></td>
+           <!-- DRIVER INFO -->
+      <td>
+        <%= b.driverId ? b.driverId.driverName : 'Not Assigned' %>
+      </td>
+      <td>
+        <%= b.driverId ? b.driverId.vehicleRegistrationNo : 'N/A' %>
+      </td>
+      <td>
+    <a href="/response/<%= b._id %>" hidden>View</a>
+  </td>
         </tr>
       <% }) %>
     </table>

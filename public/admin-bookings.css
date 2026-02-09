@@ -1,0 +1,134 @@
+/* ===============================
+   BASE + BACKGROUND IMAGE
+================================ */
+body {
+  margin: 0;
+  padding: 40px 20px;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #111;
+
+  /* Background image with COLOR */
+  background:
+    linear-gradient(
+      rgba(240, 245, 255, 0.85),
+      rgba(240, 245, 255, 0.85)
+    ),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ===============================
+   PAGE TITLE
+================================ */
+h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 26px;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+/* ===============================
+   TABLE CARD CONTAINER
+================================ */
+table {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  background: rgba(255, 255, 255, 0.95);
+  border-collapse: collapse;
+  border-radius: 14px;
+  overflow: hidden;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ===============================
+   TABLE HEADER
+================================ */
+th {
+  background: linear-gradient(
+    135deg,
+    #1e293b,
+    #334155
+  );
+  color: #ffffff;
+  padding: 18px 22px;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* ===============================
+   TABLE BODY
+================================ */
+td {
+  padding: 11px 17px;
+  font-size: 14px;
+  color: #1f2937;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ===============================
+   ROW HOVER EFFECT
+================================ */
+tr:hover td {
+  background: #f1f5ff;
+}
+
+/* ===============================
+   LAST ROW FIX
+================================ */
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===============================
+   BACK BUTTON
+================================ */
+a {
+  display: table;
+  margin: 35px auto 0;
+  padding: 12px 26px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.45);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 22px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    padding: 11px;
+    font-size: 10px;
+  }
+}

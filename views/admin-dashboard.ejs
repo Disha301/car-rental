@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../public/dashboard.css">
+    <link rel="stylesheet" href="/dashboard2.css">
 </head>
 <body>
     <h2>Admin Dashboard</h2>
     <div class="stats">
-  <div>Total Bookings: <strong><%= totalBookings %></strong></div>
-  <div>Total Cars: <strong><%= totalCars %></strong></div>
-  <div>Total Revenue: ₹<strong><%= totalRevenue %></strong></div>
+  <div class="card">Total Bookings: <strong><%= totalBookings %></strong></div>
+  <div class="card">Total Cars: <strong><%= totalCars %></strong></div>
+  <div class="card">Total Revenue: ₹<strong><%= totalRevenue %></strong></div>
 </div>
 
-<a href="/admin/bookings" hidden>View Bookings</a><br>
+<a href="/admin/bookings" >View Bookings</a><br>
 <a href="/admin/cars">Manage Cars</a><br>
+<a href="/admin/drivers">Manage Drivers</a><br>
 <a href="/">Home</a>
 </body>
 </html>

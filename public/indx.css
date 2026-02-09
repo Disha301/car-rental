@@ -1,1 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@600&display=swap');
 
+:root {
+    --primary: #0f172a;
+    --accent: #f59e0b;
+    --bg: #ffffff;
+    --text: #1e293b;
+    --card-bg: #f8fafc;
+}
+
+.h{
+    text-align: center;
+    margin-bottom: 1%;
+   color: #010116;
+}
+
+/* Dark Mode Overrides */
+body.dark {
+    --primary: #f59e0b;
+    --accent: #fbbf24;
+    --bg: #0f172a;
+    --text: #f8fafc;
+    --card-bg: #1e293b;
+}
+
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: var(--primary);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: white; 
+    font-size: 0.9rem; 
+    font-weight: 600;
+}
+
+#theme-btn {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.cartxt { color: var(--accent); font-weight: bold; }
+
+.book-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 40px;
+    background: var(--accent);
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.book-btn:hover { 
+    transform: scale(1.05); 
+    background: white; 
+}
+
+/* Features Section */
+.container {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 40px 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.feature-card .icon { font-size: 3rem; margin-bottom: 20px; }
+
+.feature-card h3 { margin-bottom: 10px; }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+
+    .hero h1 { font-size: 2.5rem; }
+
+    /* Show hamburger, hide nav links */
+    .menu-toggle { display: flex; }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--primary);
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-links.active { display: flex; }
+
+    .nav-links li { margin: 15px 0; }
+}
+
+/* Hamburger Animation when Active */
+.nav-links.active + .menu-toggle span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.nav-links.active + .menu-toggle span:nth-child(2) {
+    opacity: 0;
+}
+.nav-links.active + .menu-toggle span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Dark Mode Hamburger */
+body.dark .menu-toggle span {
+    background-color: #0f172a; 
+}

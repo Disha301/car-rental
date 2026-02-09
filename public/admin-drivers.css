@@ -1,0 +1,244 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ================= DASHBOARD BACKGROUND (LIGHTER) ================= */
+
+  body {
+  min-height: 100vh;
+  padding: 60px 20px;
+
+  background:
+    linear-gradient(
+      rgba(226, 232, 240, 0.78),
+      rgba(241, 245, 249, 0.78)
+    ),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: #020617;
+}
+
+
+
+/* ================= PAGE TITLE ================= */
+h2 {
+  text-align: center;
+  color: #0f172a;
+  font-size: 28px;
+  margin-bottom: 12px;
+  letter-spacing: 0.6px;
+}
+
+/* ================= CENTERED BACK LINK ================= */
+a {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 30px;
+
+  padding: 8px 18px;
+  color: #1e40af;
+  background: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.3s, transform 0.3s;
+}
+
+a:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ================= DRIVER CARD ================= */
+.driver-row {
+  max-width: 900px;
+  margin: 26px auto;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+
+  box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  position: relative;
+}
+
+.driver-row:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(0,0,0,0.25);
+}
+
+/* ================= DRIVER INFO (FIXED ALIGNMENT) ================= */
+.driver-info {
+  display: grid;
+  grid-template-columns: 170px auto;
+  row-gap: 12px;
+  column-gap: 20px;
+
+  margin: 12px auto 10px;
+  width: fit-content;
+}
+
+.driver-info p {
+  display: contents;
+}
+
+.driver-info p b {
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+}
+
+.driver-info p b + * {
+  text-align: left;
+  color: #111827;
+  padding-left: 6px;
+}
+
+
+/* ================= CENTERED ACCENT LINE ================= */
+.driver-row::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+}
+
+
+/* ================= BOOKING HISTORY ================= */
+details {
+  width: 100%;
+  margin-top: 16px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* EACH CUSTOMER = ONE ROW */
+.booking-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  padding: 16px 22px;
+  margin: 14px auto;          /* ⬅ CENTER EACH ROW */
+  max-width: 760px;           /* ⬅ keeps rows aligned */
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;    /* ⬅ CENTER CONTENT */
+  gap: 14px 26px;
+
+  font-size: 13.5px;
+  color: #020617;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.booking-card > * {
+  min-width: 220px;
+  text-align: center;
+  padding: 4px 6px;
+}
+
+
+.booking-card p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+
+/* ================= ACTION BUTTONS ================= */
+.driver-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.driver-actions button {
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.driver-actions button:first-child {
+  background: #16a34a;
+  color: white;
+}
+
+.driver-actions button:last-child {
+  background: #dc2626;
+  color: white;
+}
+
+.driver-actions button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.3);
+}
+
+/* ================= EMPTY STATE ================= */
+body > p {
+  text-align: center;
+  color: #334155;
+  font-size: 15px;
+  margin-top: 30px;
+}
+.booking-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.18);
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 700px) {
+  .driver-row {
+    padding: 22px;
+  }
+
+  .driver-info {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .driver-info p b {
+    text-align: center;
+  }
+
+  .booking-card {
+    flex-direction: column;
+  }
+
+  .driver-actions {
+    flex-direction: column;
+  }
+}

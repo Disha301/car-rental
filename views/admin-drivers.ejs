@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Drivers</title>
+<link rel="stylesheet" href="/admin-drivers.css">
+</head>
+<body>
+<h2>Manage Drivers</h2>
+<a href="/admin/dashboard">Back to Dashboard</a>
+<hr>
+
+<% if(drivers.length === 0){ %>
+  <p>No drivers found.</p>
+<% } %>
+
+<% drivers.forEach(driver => { %>
+  <div class="driver-row">
+  <div class="driver-info">
+    <p><b>Name:</b> <%= driver.driverName %></p>
+    <p><b>Phone:</b> <%= driver.driverPhone %></p>
+    <p><b>Vehicle No:</b> <%= driver.vehicleRegistrationNo %></p>
+    <p><b>Route:</b> <%= driver.drivingRoute %></p>
+    <p><b>Status:</b> <%= driver.approvalStatus %></p>
+    <p><b>Availability:</b> <%= driver.availabilityStatus %></p>
+    <p><b>Total Bookings:</b> <%= driver.totalBookings %></p>
+</div>
+    <% if(driver.bookingHistory.length > 0){ %>
+      <details>
+        <summary>Booking History</summary>
+        <% driver.bookingHistory.forEach(b => { %>
+          <div class="booking-card">
+            <p><b>Customer:</b> <%= b.customerName %></p>
+            <p><b>Contact :</b><%= b.contact %></p>
+            <p><b>Destination:</b> <%= b.destination %></p>
+           <p>
+  <b>Start:</b>
+  <%= b.startDate ? new Date(b.startDate).toDateString() : 'N/A' %>
+  |
+  <b>End:</b>
+  <%= b.endDate ? new Date(b.endDate).toDateString() : 'N/A' %>
+</p>
+ </div>
+        <% }) %>
+      </details>
+    <% } %>
+
+    <% if(driver.approvalStatus === 'PENDING'){ %>
+      <div class="driver-actions">
+
+      <form action="/admin/drivers/<%= driver._id %>/approve" method="POST" style="display:inline;">
+        <button type="submit">Approve</button>
+      </form>
+      <form action="/admin/drivers/<%= driver._id %>/reject" method="POST" style="display:inline;">
+        <button type="submit">Reject</button>
+      </form>
+      </div>
+    <% } %>
+  </div>
+<% }) %>
+</body>
+</html>

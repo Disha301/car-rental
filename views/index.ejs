@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link id="themeStylesheet" rel="stylesheet" href="indexStyle.css">
-    <link rel="stylesheet" href="about-style.css">
+    <link id="themeStylesheet"  rel="stylesheet" href="indx.css">
+    
 </head>
 <body class="light">
-    <h1>BHARTI TAXI SERVICE</h1>
-    <nav>
-        <ul>
-
-            <li><a href="#">HOME</a></li>
+    <h1 class="h">BHARTI TAXI SERVICE</h1>
+    <header> 
+    <nav class="navbar">
+        <div class="logo"> BHARTI TAXI SERVICE </div>
+        <ul class="nav-links">
+            <li><a href="/">HOME</a></li>
             <li><a href="/about">ABOUT</a></li>
             <li><a href ="/contact">CONTACT</a></li>
-            <li><a href="/admin/login">ADMIN LOGIN</a></li>
-           <li><a href="/user-login" hidden >YOUR BOOKINGS</a></li>
-       
-           <button onclick="toggleTheme()" id="mode" hidden>Change Mode</button>
-    </ul>
+            <li><a href="/admin/login" class="admin-link">ADMIN LOGIN</a></li>
+           <li><a href="/user-login" >YOUR BOOKINGS</a></li>
+       <li><a href="/driver/register">Driver Registration</a></li>
+        </ul>
+
+           <button onclick="toggleTheme()" id="theme-btn"> 🌓</button>
+   
  </nav>
-    <div class="main">
+</header>
+<section class="hero">
+    <div class="main hero-content">
+     <h1>BHARTI TAXI SERVICE </h1>
     <h3>
         Your JOURNEY Starts here!!!
         <img src="" alt="">
@@ -29,34 +35,43 @@
       <p> Book <SPan class="cartxt">CARS</SPan> At Lowest Prices</p>
    
    
-       <a href='/form'> <button class="book">BOOK NOW</button></a>
-</button>
+       <a href='/form' class="book-btn">BOOK NOW </a>
+       <!--<button class="book"></button>-->
 </div>
-<h2>Why Choose Us</h2>
+</section>
+
+<section class="container">
+<h2 class="secton-title">Why Choose Us</h2>
 <div class="features">
-<div>
+<div class="feature-card">
+    <div class="icon">🚗</div>
 <h3>Wide Range of Cars</h3>
 <p>SUVs, Sedans, and more available anytime</p>
 </div>
-<div>
+<div class="feature-card">
+    <div class="icon">🎧</div>
 <h3>24/7 Support</h3>
 <p>We're here to assist you round the clock</p>
 </div>
-<div>
+<div class="feature-card">
+                <div class="icon">💰</div>
     <h3>Affordable Pricing</h3>
     <p>No hidden charges, clearand upfront rates</p>
 </div>
-<div>
+<div class="feature-card">
+                <div class="icon">⭐</div>
+
     <h3>Trusted by 50K+ Users</h3>
     <p>Serving happy customers for over 5 years</p>
 </div>
 </div>
+</section>
 </body>
 <script>
     
-    function toggleTheme() {
+    /*  function toggleTheme() {
       const body = document.body;
-      const themeLink = document.getElementById('themeStylesheet');
+    const themeLink = document.getElementById('themeStylesheet');
       
       // Toggle between 'dark' and 'light' classes
       if (body.classList.contains('light')) {
@@ -68,7 +83,16 @@
         body.classList.add('light');
         themeLink.setAttribute('href', 'indexStyle.css');  // Change to light stylesheet
       }
-    }
+    }*/function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+}
+
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark');
+    body.classList.toggle('light');
+}
   
 </script>
 </html>

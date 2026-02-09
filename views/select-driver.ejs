@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Select Driver</h2>
+
+
+<% if(drivers.length === 0){ %>
+  <p>No drivers available at the moment.</p>
+<% } %>
+
+<% drivers.forEach(driver => { %>
+  <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+    <p><b>Name:</b> <%= driver.driverName %></p>
+    <p><b>Phone:</b> <%= driver.driverPhone %></p>
+    <p><b>Vehicle No:</b> <%= driver.vehicleRegistrationNo %></p>
+    <p><b>Route:</b> <%= driver.drivingRoute %></p>
+
+    <button type="button" onclick="chooseDriver('<%= driver._id %>', '<%= driver.driverName %>')">Confirm</button>
+  </div>
+<% }) %>
+
+<script>
+function chooseDriver(driverId, driverName) {
+    // Save driver selection in localStorage/sessionStorage
+    sessionStorage.setItem('selectedDriverId', driverId);
+    sessionStorage.setItem('selectedDriverName', driverName);
+
+    // Redirect back to form page
+    window.location.href = '/form';
+}
+</script>
+</body>
+</html>
